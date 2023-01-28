@@ -31,7 +31,7 @@ public class BookService {
     }
 
 
-    public List<Book> getBooksByGenre(Long genreId) {
+    public List<Book> findByGenre(Long genreId) {
         return this.bookRepository.findByGenreId(genreId);
     }
 }

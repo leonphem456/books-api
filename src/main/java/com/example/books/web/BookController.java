@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
-@CrossOrigin
 @RequestMapping(path = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
 public class BookController {
     @Autowired
@@ -21,9 +21,9 @@ public class BookController {
         return this.bookService.getAllBooks();
     }
 
-    @GetMapping(path = "by-genres/{id}")
-    public List<Book> getBooksByGenre(@PathVariable("id") Long genreId) {
-        return this.bookService.getBooksByGenre(genreId);
+    @GetMapping(path = "findByGenre/{genreId}")
+    public List<Book> findByGenre(@PathVariable("genreId") Long genreId) {
+        return this.bookService.findByGenre(genreId);
     }
 
     @GetMapping(path = "id/{id}")
